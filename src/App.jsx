@@ -45,9 +45,6 @@ function App() {
     console.log(window.innerWidth, window.innerHeight);
   }
 
-  //1x
-  // const [id, setUserId] = useState(1);
-
   // useEffect is a React hook used for performing side effects in functional components.
   // Side effects may include data fetching, subscriptions, or manually changing the DOM or DOM events.
   useEffect(() => {
@@ -81,7 +78,7 @@ function App() {
   // the value of the element to check which element is updated
   return (
     <>
-      <h3>hooks managment</h3>
+      <h3>hooks management</h3>
       {/* <h2>{data.name}</h2> */}
       {/* <h2>{data.count}</h2> */}
       {/* <h2>{data.role}</h2> */}
