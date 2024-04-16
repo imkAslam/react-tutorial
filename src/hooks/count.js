@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 // custom hooks name must start with use keyword e.g useCounter
-export function useCount() {
-  const [count, setCount] = useState(0);
+export function useCount(val) {
+  const [count, setCount] = useState(val || 0);
 
   function increment() {
     setCount(count + 1);
