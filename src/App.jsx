@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import "./App.css";
 import { useCount } from "./hooks/count";
+import { useUserContext } from "./contexts/userContext";
+import Header from "./layout/header";
 
 function App() {
   // use of custom hook as multi call
-
+  const { users } = useUserContext();
   const [counter, setCounter] = useCount();
   const [numbs, setNumbs] = useCount(10);
 
@@ -75,9 +77,10 @@ function App() {
     //   // clearTimeout(timer);
     // };
   }, []);
-
+  console.log(users);
   return (
     <>
+      <Header />
       <h3>hooks management</h3>
       {/* <h2>{data.name}</h2> */}
       {/* <h2>{data.count}</h2> */}
