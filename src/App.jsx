@@ -1,14 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "./App.css";
 import { useCount } from "./hooks/count";
-import { useUserContext } from "./contexts/userContext";
 import Header from "./layout/header";
 
 function App() {
-  // use of custom hook as multi call
-  const { users } = useUserContext();
   const [counter, setCounter] = useCount();
   const [numbs, setNumbs] = useCount(10);
+
+  const inputRef = useRef();
 
   console.log("counter", counter);
   console.log("numbs", numbs);
@@ -77,10 +76,13 @@ function App() {
     //   // clearTimeout(timer);
     // };
   }, []);
-  console.log(users);
+
+  console.log("inputRef", inputRef?.current?.value);
+
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
       <Header />
+
       <h3>hooks management</h3>
       {/* <h2>{data.name}</h2> */}
       {/* <h2>{data.count}</h2> */}
@@ -88,14 +90,13 @@ function App() {
       <button onClick={() => setCounter()}>increment-counter</button>
       <br />
       <button onClick={() => setNumbs()}>increment-numbs</button>
-      {/* <input
-        value={data.name}
-        name="username"
-        // onChange={(e) => handleName(e)}
-      /> */}
+      <div>
+        <input className="email" ref={inputRef} name="username" />
+      </div>
+      <button>submit</button>
       {/* <h2>{data.count}</h2> */}
       {/* <button onClick={() => handledecrement()}>decrement</button> */}
-    </>
+    </div>
   );
 }
 
